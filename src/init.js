@@ -24,9 +24,14 @@ $(document).ready(function(){
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      500 // Math.random() * 1000
     );
-    $('body').append(dancer.$node);
+//     $('body').append(dancer.$node);
+//     dancer.$node.load(function() {
+// debugger;
+// var x = dancer.$node.width();
+// var y = dancer.$node.height();
+//     });
   });
 });
 
