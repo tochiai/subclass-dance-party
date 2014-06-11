@@ -15,8 +15,8 @@ var chooseDancerImg = function() {
 var Dancer = function(top, left, timeBetweenSteps){
   this._nativeWidth = 128;
   this._nativeHeight = 128;
-  this._bearingToRight  = 30 - (60 * Math.random());
-  this._bearingDownward = 30 - (60 * Math.random());
+  this._bearingToRight  = 0;
+  this._bearingDownward = 0;
 
   var dancerImg = chooseDancerImg();
   this.$node = $('<img class="dancer" src="img/' + dancerImg + '" alt="' + dancerImg + '"/>');
@@ -44,32 +44,35 @@ Dancer.prototype.setPosition = function(top, left){
   // where it belongs on the page. See http://api.jquery.com/css/
   this.setTop(top);
   this.setLeft(left);
-  this.$node.css({ left:left , top:top });
+  // this.$node.css({ left:left , top:top });
 };
 
 Dancer.prototype.setTop = function(top){
   // top  = Math.floor(top);
   this._masterTop = top;
+  this.$node.css({ top:top });
 };
 
 Dancer.prototype.setLeft = function(left){
   // left  = Math.floor(left);
   this._masterLeft = left;
+  this.$node.css({ left:left });
 };
 
 Dancer.prototype.roam = function(){
-  var rangeOnLeft = this._masterLeft-2;
-  var rangeAbove = this._masterTop-2;
-  var rangeOnRight = $('body').width()-this._masterLeft-130;
-  var rangeBelow = $('body').height()-this._masterTop-130;
-  var rHoriz = Math.random() *  (rangeOnLeft + rangeOnRight);
-  this._bearingToRight += 50*(rHoriz - rangeOnLeft)/rangeOnLeft;
-  var rVert  = Math.random() *  (rangeAbove  + rangeBelow);
-  this._bearingDownward += 50*(rVert - rangeBelow)/rangeBelow;
-  // this.setPosition(
-  //   // this._masterLeft + this._bearingRight,
-  //   // this._masterTop + this._bearingDownward
-  // );
+  return;
+  // var rangeOnLeft = this._masterLeft-2;
+  // var rangeAbove = this._masterTop-2;
+  // var rangeOnRight = $('body').width()-this._masterLeft-130;
+  // var rangeBelow = $('body').height()-this._masterTop-130;
+  // var rHoriz = Math.random() *  (rangeOnLeft + rangeOnRight);
+  // this._bearingToRight += .0*(rHoriz - rangeOnLeft)/rangeOnLeft;
+  // var rVert  = Math.random() *  (rangeAbove  + rangeBelow);
+  // this._bearingDownward += .0*(rVert - rangeBelow)/rangeBelow;
+  this.setPosition(
+    this._masterLeft + this._bearingToRight,
+    this._masterTop + this._bearingDownward
+  );
 };
 
 Dancer.prototype.step = function(){
