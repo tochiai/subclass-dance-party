@@ -13,8 +13,8 @@ var BobbingDancer = function(top, left, timeBetweenSteps){
     this.$node.animate(
       {height: ''+this._nativeHeight*2+'px',
         width: ''+this._nativeHeight/2+'px',
-        top:  ''+( this._masterTop  - this._nativeHeight / 2)+'px',
-        left: ''+( this._masterLeft + this._nativeWidth  / 2)+'px'
+        top:  ''+(this._masterTop  - this._nativeHeight / 2)+'px',
+        left: ''+(this._masterLeft + this._nativeWidth  / 2)+'px'
       },
       this._timeBetweenSteps/2,
       'swing',
