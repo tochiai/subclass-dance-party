@@ -26,12 +26,12 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       500 // Math.random() * 1000
     );
-//     $('body').append(dancer.$node);
-//     dancer.$node.load(function() {
-// debugger;
-// var x = dancer.$node.width();
-// var y = dancer.$node.height();
-//     });
+    window.dancers.push(dancer);
+  });
+
+  $('.lineUpLeftButton').on('click', function() {
+    for(var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUpLeft();
+    }
   });
 });
-
